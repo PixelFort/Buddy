@@ -31,5 +31,7 @@ target 'Buddy' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+    pod 'react-native-vector-icons', :path => '../node_modules/react-native-vector-icons'
+
   end
 end
