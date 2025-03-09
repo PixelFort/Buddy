@@ -84,7 +84,7 @@ const StackNavigator = () => {
     return (
     <NavigationContainer>  
         <MainStack/>
-         </NavigationContainer>
+    </NavigationContainer>
   );
 }
 
