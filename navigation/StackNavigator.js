@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import HomeScreen from '../screens/HomeScreen';
 import PlayScreen from '../screens/PlayScreen';
 import BookScreen from '../screens/BookScreen';
@@ -20,42 +20,46 @@ const StackNavigator = () => {
         return (
             <Tab.Navigator>
                 <Tab.Screen name="Home" component={HomeScreen} options={{
-                    tabBarActiveTintColor:"blue",
+                    tabBarActiveTintColor:"green",
+                    
                     tabBarIcon:({focused}) => 
                         focused ? (
-                            <Ionicons name="home-outline" size={24} color="blue" />
+                            <Ionicons name="home-outline" size={24} color="green" />
                         ):(
                             <Ionicons name="home-outline" size={24} color="#989898" />
                         )
                 }} />
                 
                 <Tab.Screen name="Play" component={PlayScreen} options={{
-                    tabBarActiveTintColor:"blue",
+                    tabBarActiveTintColor:"green",
+                    headerShown:false,
                     tabBarIcon:({focused}) => 
                         focused ? (
-                            <AntDesign name="addusergroup" size={24} color="blue" />
+                            <AntDesign name="addusergroup" size={24} color="green" />
                         ):(
                             <AntDesign name="addusergroup" size={24} color="#989898" />
                         )
                 }} />
                 
                 <Tab.Screen name="Book" component={BookScreen} options={{
-                    tabBarActiveTintColor:"blue",
+                    tabBarActiveTintColor:"green",
+                    headerShown:false,
                     tabBarIcon:({focused}) => 
                         focused ? (
-                            <Ionicons name="home-outline" size={24} color="blue" />
+                            <SimpleLineIcons name="book-open" size={24} color="green" />
                         ):(
-                            <Ionicons name="home-outline" size={24} color="#989898" />
+                            <SimpleLineIcons name="book-open" size={24} color="#989898" />
                         )
                 }} />
 
                <Tab.Screen name="Profile" component={ProfileScreen} options={{
-                    tabBarActiveTintColor:"blue",
+                    tabBarActiveTintColor:"green",
+                    headerShown:false,
                     tabBarIcon:({focused}) => 
                         focused ? (
-                            <Ionicons name="home-outline" size={24} color="blue" />
+                            <Ionicons name="person-outline" size={24} color="green" />
                         ):(
-                            <Ionicons name="home-outline" size={24} color="#989898" />
+                            <Ionicons name="person-outline" size={24} color="#989898" />
                         )
                 }} />
 
