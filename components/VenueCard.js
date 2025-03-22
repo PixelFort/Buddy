@@ -1,11 +1,30 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { useNavigation } from '@react-navigation/native';
 
 const VenueCard = ({ items }) => {
+    const navigation = useNavigation();
     return (
         <View style={{ margin: 15 }}>
-            <Pressable style={{ backgroundColor: "white", borderRadius: 5, borderTopLeftRadius: 10, borderTopRightRadius: 10 }}>
+            <Pressable 
+                onPress={() => navigation.navigate('Venue', {
+                    name: item.name,
+                    image: item.newImage, 
+                    sportsAvailable: item.sportsAvailable,
+                    rating: item.rating,
+                    timings: item.timings,
+                    address: item.address,
+                    location: item.location,
+                    bookings: item.bookings,
+                })
+            }
+                style={{ 
+                    backgroundColor: "white", 
+                    borderRadius: 5, 
+                    borderTopLeftRadius: 10, 
+                    borderTopRightRadius: 10 
+                }}>
                 <View>
                     <Image
                         style={{
@@ -39,7 +58,7 @@ const VenueCard = ({ items }) => {
                         </View>
                     </View>
 
-                    <Text style={{}}>
+                    <Text style={{color: "gray"}}>
                         {item?.address.length > 40
                             ? item?.address?.substring(0, 40) + "..."
                             : item?.address}

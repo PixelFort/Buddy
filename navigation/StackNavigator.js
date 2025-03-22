@@ -11,6 +11,7 @@ import PlayScreen from '../screens/PlayScreen';
 import BookScreen from '../screens/BookScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import VenueinfoScreen from '../screens/VenueinfoScreen';
 
 const StackNavigator = () => {
    const Stack = createNativeStackNavigator();
@@ -81,6 +82,9 @@ const StackNavigator = () => {
          return (
              <Stack.Navigator>
                  <Stack.Screen name="Main" component={BottomTabs}  options={{headerShown:false}}/>
+
+                 <Stack.Screen name="Venue" component={VenueinfoScreen}  options={{headerShown:false}}/>
+
                  <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown:false}} />
              </Stack.Navigator>
          );
