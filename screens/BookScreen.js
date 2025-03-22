@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View, SafeAreaView, Image, TextInput } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable, FlatList } from 'react-native'
 import React from 'react'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import VenueCard from '../components/VenueCard';
 
 const BookScreen = () => {
+  const venues = []; 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f5f5f5" }}>
       <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", padding: 12 }}>
@@ -32,7 +34,26 @@ const BookScreen = () => {
         <Ionicons name="search" size={24} color="gray" />
       </View>
 
-      
+      <Pressable style = {{flexDirection:"row", alignItems:"center", gap:10, padding: 13}}>
+        <View style={{padding:10, borderRadius:10, borderColor:"#E0E0E0", borderWidth:1}}>
+          <Text>Sports & Availability</Text>
+        </View>
+
+        <View style={{padding:10, borderRadius:10, borderColor:"#E0E0E0", borderWidth:1}}>
+          <Text>Favorites</Text>
+        </View>
+
+        <View style={{padding:10, borderRadius:10, borderColor:"#E0E0E0", borderWidth:1}}>
+          <Text>Offers</Text>
+        </View>
+      </Pressable>
+
+      <FlatList 
+        data={venues} 
+        renderItem={({item}) => <VenueCard item={item} />}
+        contentContainerStyle={{paddingBottom: 20}}
+        showsHorizontalScrollIndicator={false}
+      />
     </SafeAreaView>
   )
 }
