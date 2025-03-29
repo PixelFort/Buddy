@@ -67,7 +67,7 @@ const VenueCard = ({ item }) => {
                     <View style={{height:1, borderWidth:0.6, borderColor:"#E0E0E0", marginVertical: 10}}/>
 
                     <View style={{flexDirection:"row", alignItems:"center", justifyContent:"space-between"}}>
-                        <Text>INR 250 Onwards</Text>
+                        {/* <Text>INR 250 Onwards</Text> */}
                     </View>
                 </View>
             </Pressable>
