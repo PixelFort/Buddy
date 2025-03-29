@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import React from 'react'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
-const VenueCard = ({ items }) => {
+const VenueCard = ({ item }) => {
     const navigation = useNavigation();
     return (
         <View style={{ margin: 15 }}>
@@ -28,12 +28,12 @@ const VenueCard = ({ items }) => {
                 <View>
                     <Image
                         style={{
-                            width: "100",
+                            width: '100%',
                             height: 200,
                             borderTopLeftRadius: 10,
-                            borderTopRightRadius: 10
+                            borderTopRightRadius: 10,
                         }}
-                        source={{ uri: item?.image }}
+                        source={{uri: item?.image}}
                     />
                 </View>
 

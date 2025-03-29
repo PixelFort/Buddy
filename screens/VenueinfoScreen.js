@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
 import React from 'react'
 
-const VenueinfoScreen = () => {
+const VenueInfoScreen = () => {
   return (
     <SafeAreaView style={{flex:1}}>
-      <Text>VenueinfoScreen</Text>
+      <Text>VenueInfoScreen</Text>
     </SafeAreaView>
   )
 }
 
-export default VenueinfoScreen
+export default VenueInfoScreen
 
 const styles = StyleSheet.create({})
