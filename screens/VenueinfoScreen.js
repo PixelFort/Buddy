@@ -2,8 +2,8 @@ import {StyleSheet, Text, View, SafeAreaView, Pressable,ScrollView,Image} from '
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons ';
 import Amenities from '../components/Amenities';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {getParseTreeNode} from 'typescript';

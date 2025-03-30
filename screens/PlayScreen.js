@@ -20,9 +20,9 @@ const PlayScreen = () => {
             <Ionicons name="notifications-outline" size={24} color="white" />
             <Image
               style={{ width: 30, height: 30, borderRadius: 15 }}
-              source={{
-                uri: user?.user?.image, // image to be added here
-              }}
+              // source={{
+              //   uri: user?.user?.image, // image to be added here
+              // }}
             />
           </View> 
         </View>

@@ -16,20 +16,16 @@ const Amenities = () => {
       name: 'Change Room',
     },
     {
-      id: '3',
+      id: '4',
       name: 'Drinking Water',
     },
     {
-      id: '4',
+      id: '5',
       name: 'Juice',
     },
     {
-      id: '5',
-      name: 'Fitness Coach ',
-    },
-    {
       id: '6',
-      name: 'First Aid',
+      name: 'Fitness Coach ',
     },
     {
       id: '7',
