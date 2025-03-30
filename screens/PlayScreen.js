@@ -18,12 +18,13 @@ const PlayScreen = () => {
           <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
             <Ionicons name="chatbox-outline" size={24} color="white" />
             <Ionicons name="notifications-outline" size={24} color="white" />
-
-          {/* user image */}
-            <Image 
-            style={{height:30,width:30,borderRadius:15}} 
-            source={{uri:"https://lh3.googleusercontent.com/ogw/AF2bZyir6Sqlf8phGWjAPbO0NeatiNusNv5TyUqezTyFnB7vgOo=s64-c-mo"}}/>
-          </View>
+            <Image
+              style={{ width: 30, height: 30, borderRadius: 15 }}
+              // source={{
+              //   uri: user?.user?.image, // image to be added here
+              // }}
+            />
+          </View> 
         </View>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 10, marginVertical: 13 }}>
           <Pressable onPress={() => setOption("Calendar")} >
@@ -53,6 +54,7 @@ const PlayScreen = () => {
           </ScrollView>
         </View>
       </View>
+
       <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", padding: 10, backgroundColor: "white" }} >
         <Pressable>
           <Text style={{ fontWeight: "bold" }}>Create Game</Text>
@@ -73,4 +75,4 @@ const PlayScreen = () => {
 
 export default PlayScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({}); 
