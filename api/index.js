@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 const jwt = require("jsonwebtoken");
 
 mongoose.connect(
-    "mongodb+srv://amayank18:<db_password>@cluster0.khlljsy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+   MONGO_URI="mongodb+srv://ronitkhanuja:Ronit123@cluster0.odejoiu.mongodb.net/Buddy?retryWrites=true&w=majority"
 ).then(() => {
     console.log("Connected to MongoDB")
 }).catch(err => {
