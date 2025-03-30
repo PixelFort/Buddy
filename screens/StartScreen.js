@@ -101,7 +101,7 @@ import {
           </Pressable>
           <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 25 }}>
             <Image
-              style={{ width: 150, height: 100, resizeMode: 'contain' }}
+              style={{ width: 200, height: 100, resizeMode: 'contain' }}
               source={{
                 uri: 'https://drive.google.com/uc?export=view&id=10WxPKQHQ_wybzsqKtsyoi2ERkguLY-tD',
               }}
