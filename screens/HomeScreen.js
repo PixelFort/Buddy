@@ -206,13 +206,13 @@ export default function HomeScreen() {
           <View>
             <View style={{marginLeft:'auto',marginRight:'auto'}}>
             <Image
-            style={{width: 120, height: 70, resizeMode: 'contain'}}
+            style={{width: 240, height: 80, resizeMode: 'contain'}}
             source={{
-              uri: 'https://playo-website.gumlet.io/playo-website-v2/logos-icons/new-logo-playo.png?q=50',
+              uri: 'https://drive.google.com/uc?export=view&id=10WxPKQHQ_wybzsqKtsyoi2ERkguLY-tD',
             }}
           />
             </View>
-            <Text style={{color:'gray',textAlign:'center'}}>Your Sports community app</Text>
+            <Text style={{color:'gray',textAlign:'center',marginTop: 5}}>Your Sports community app</Text>
           </View>
     </ScrollView>
   )
