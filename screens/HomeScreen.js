@@ -208,7 +208,8 @@ export default function HomeScreen() {
             <Image
             style={{width: 240, height: 80, resizeMode: 'contain'}}
             source={{
-              uri: 'https://drive.google.com/uc?export=view&id=10WxPKQHQ_wybzsqKtsyoi2ERkguLY-tD',
+              uri: 'https://drive.google.com/uc?export=download&id=10WxPKQHQ_wybzsqKtsyoi2ERkguLY-tD'
+              ,cache: 'force-cache',
             }}
           />
             </View>
