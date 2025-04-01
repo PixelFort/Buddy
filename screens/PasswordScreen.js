@@ -12,16 +12,16 @@ import {Animated} from 'react-native-maps';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
-import { saveRegistrationProgress } from '../registrationUtils';
+// import { saveRegistrationProgress } from '../registrationUtils';
 const PasswordScreen = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
-//   const handleNext = () => {
-//     if(password.trim() !== ''){
-//       saveRegistrationProgress('Password',{password});
-//     }
-//     navigation.navigate("Name")
-//   }
+  const handleNext = () => {
+    if(password.trim() !== ''){
+      saveRegistrationProgress('Password',{password});
+    }
+    navigation.navigate("Name")
+  }
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{marginTop: 90, marginHorizontal: 20}}>
@@ -80,7 +80,7 @@ const PasswordScreen = () => {
         <Text style={{color: 'gray', fontSize: 15, marginTop: 7}}>
           Note: Your details will be safe with us
         </Text>
-        {/* <TouchableOpacity
+        <TouchableOpacity
           onPress={handleNext}
           activeOpacity={0.8}
           style={{marginTop: 30, marginLeft: 'auto'}}>
@@ -90,7 +90,7 @@ const PasswordScreen = () => {
             size={45}
             color="green"
           />
-        </TouchableOpacity> */}
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
