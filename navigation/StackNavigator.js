@@ -14,7 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import VenueInfoScreen from '../screens/VenueinfoScreen';
 import StartScreen from '../screens/StartScreen';
 import LoginScreen from '../screens/LoginScreen';
-//import NameScreen from '../screens/NameScreen';
+import NameScreen from '../screens/NameScreen';
 import SelectImage from '../screens/SelectImage';
 import PreFinalScreen from '../screens/PreFinalScreen';
 import RegisterScreen from '../screens/RegisterScreen';
@@ -112,11 +112,11 @@ const StackNavigator = () => {
           component={PasswordScreen}
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Name"
           component={NameScreen}
           options={{headerShown: false}}
-        /> */}
+        />
         <Stack.Screen
           name="Image"
           component={SelectImage}
