@@ -18,6 +18,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import StackNavigator from './navigation/StackNavigator';
+import { AuthProvider } from './AuthContext';
 
 
 function Section({children, title}) {
@@ -69,7 +70,10 @@ function App() {
         
     //   </ScrollView>
     // </SafeAreaView>
-    <StackNavigator/>
+    <AuthProvider>
+      <StackNavigator/>
+    </AuthProvider>
+    
   );
 }
 
