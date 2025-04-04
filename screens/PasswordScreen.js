@@ -12,11 +12,12 @@ import {Animated} from 'react-native-maps';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
-// import { saveRegistrationProgress } from '../registrationUtils';
+import { saveRegistrationProgress } from '../registrationUtils';
 const PasswordScreen = () => {
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
   const handleNext = () => {
+
     if(password.trim() !== ''){
       saveRegistrationProgress('Password',{password});
     }

@@ -7,9 +7,10 @@ import {
   Pressable,
   TextInput,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import { getRegistrationProgress, saveRegistrationProgress } from '../registrationUtils';
 
 const SelectImage = () => {
   const [image, setImage] = useState(null);
@@ -32,9 +33,20 @@ const SelectImage = () => {
       image: 'https://cdn-icons-png.flaticon.com/128/3079/3079652.png',
     },
   ];
+  useEffect(() => {
+    getRegistrationProgress('Image').then(progressData => {
+      if (progressData) {
+        setImage(progressData.image || '');
+      }
+    });
+  }, []);
+
   const saveImage = () => {
-    navigation.navigate("PreFinal")
-  }
+    if (image && image.trim() !== '') {
+      saveRegistrationProgress('Image', {image});
+    }
+    navigation.navigate('PreFinal');
+  };
   return (
     <>
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>

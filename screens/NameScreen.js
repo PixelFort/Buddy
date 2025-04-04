@@ -1,22 +1,38 @@
 import {StyleSheet, Text, View, SafeAreaView, TextInput} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import PreFinalScreen from './PreFinalScreen';
 import {Pressable} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import {
+  getRegistrationProgress,
+  saveRegistrationProgress,
+} from '../registrationUtils';
 
 const NameScreen = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    getRegistrationProgress('Name').then(progressData => {
+      if (progressData) {
+        setFirstName(progressData.firstName || '');
+        setLastName(progressData.lastName || '');
+      }
+    });
+  });
 
   const saveName = () => {
-    navigation.navigate("Image");
-  }
+    if (firstName.trim() != '') {
+      saveRegistrationProgress('Name', {firstName, lastName});
+    }
+    navigation.navigate('Image');
+  };
   return (
     <>
       <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-        <View style={{marginHorizontal:10}}>
+        <View style={{marginHorizontal: 10}}>
           <Ionicons name="arrow-back" size={24} color="black" />
         </View>
 
@@ -58,8 +74,8 @@ const NameScreen = () => {
             <Text style={{fontSize: 16, color: 'gray'}}>Last Name </Text>
 
             <TextInput
-              value={firstName}
-              onChangeText={setFirstName}
+              value={lastName}
+              onChangeText={setLastName}
               style={{
                 padding: 10,
                 borderColor: '#D0D0D0',
@@ -73,7 +89,7 @@ const NameScreen = () => {
       </SafeAreaView>
 
       <Pressable
-      onPress={saveName}
+        onPress={saveName}
         style={{
           backgroundColor: '#07bc0c',
           marginTop: 'auto',

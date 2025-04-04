@@ -6,11 +6,29 @@ import {
   TextInput,
   Pressable,
 } from 'react-native';
-import React, {useState} from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {
+  getRegistrationProgress,
+  saveRegistrationProgress,
+} from '../registrationUtils';
 const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const navigation = useNavigation();
+  useEffect(() => {
+    getRegistrationProgress('Register').then(progressData => {
+      if (progressData) {
+        setEmail(progressData.email || '');
+      }
+    });
+  }, []);
+  const next = () => {
+    if (email.trim() !== '') {
+      saveRegistrationProgress('Register', {email});
+    }
+
+    navigation.navigate('Password');
+  };
   return (
     <SafeAreaView>
       {/* view one */}
@@ -23,7 +41,6 @@ const RegisterScreen = () => {
 
         <View style={{flexDirection: 'column', gap: 16, marginVertical: 40}}>
           <Text>Enter Email</Text>
-
           <TextInput
             value={email}
             onChangeText={setEmail}
@@ -35,12 +52,13 @@ const RegisterScreen = () => {
             }}
             //placeholder="email"
           />
-            {/* Now we have to add the next page so as we can navigate from the "Next" button */}
+          navigation.navigate("Password")
+          {/* Now we have to add the next page so as we can navigate from the "Next" button */}
           <Pressable
-          onPress={() => navigation.navigate("Password")}
+            onPress={next}
             style={{
               padding: 15,
-              backgroundColor: email?.length > 4 ? '2dcf30' : '#E0E0E0',
+              backgroundColor: email?.length > 4 ? '#2dcf30' : '#E0E0E0',
               borderRadius: 8,
             }}>
             <Text style={{textAlign: 'center'}}>Next</Text>
@@ -48,11 +66,17 @@ const RegisterScreen = () => {
         </View>
 
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{fontSize: 15,fontWeight:"500", textAlign: 'center'}}>
+          <Text style={{fontSize: 15, fontWeight: '500', textAlign: 'center'}}>
             I agree to recieve update over Whatsapp
           </Text>
 
-          <Text style={{fontSize: 15,color:"gray", textAlign: "center", marginTop:20 }}>
+          <Text
+            style={{
+              fontSize: 15,
+              color: 'gray',
+              textAlign: 'center',
+              marginTop: 20,
+            }}>
             By Signing Up, you agree to the terms of services and privacy and
             privacy policy
           </Text>
