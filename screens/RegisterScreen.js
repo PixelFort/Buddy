@@ -13,8 +13,9 @@ import {
   saveRegistrationProgress,
 } from '../registrationUtils';
 const RegisterScreen = () => {
-  const [email, setEmail] = useState('');
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+
   useEffect(() => {
     getRegistrationProgress('Register').then(progressData => {
       if (progressData) {
@@ -22,6 +23,7 @@ const RegisterScreen = () => {
       }
     });
   }, []);
+
   const next = () => {
     if (email.trim() !== '') {
       saveRegistrationProgress('Register', {email});
@@ -29,6 +31,7 @@ const RegisterScreen = () => {
 
     navigation.navigate('Password');
   };
+
   return (
     <SafeAreaView>
       {/* view one */}
@@ -52,14 +55,15 @@ const RegisterScreen = () => {
             }}
             //placeholder="email"
           />
-          navigation.navigate("Password")
+          {/* navigation.navigate("Password"); */}
           {/* Now we have to add the next page so as we can navigate from the "Next" button */}
+          
           <Pressable
             onPress={next}
             style={{
               padding: 15,
               backgroundColor: email?.length > 4 ? '#2dcf30' : '#E0E0E0',
-              borderRadius: 8,
+               borderRadius: 8,
             }}>
             <Text style={{textAlign: 'center'}}>Next</Text>
           </Pressable>

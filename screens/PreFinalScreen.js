@@ -6,6 +6,11 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {collapseTextChangeRangesAcrossMultipleVersions} from 'typescript';
 import {useNavigation} from '@react-navigation/native';
+import {
+  getRegistrationProgress,
+  saveRegistrationProgress,
+} from '../registrationUtils';
+
 const PreFinalScreen = () => {
   const {token, setToken} = useContext(AuthContext);
   const navigation = useNavigation();
@@ -18,6 +23,7 @@ const PreFinalScreen = () => {
   useEffect(() => {
     getAllScreenData();
   }, []);
+
   const getAllScreenData = async () => {
     try {
       const screens = ['Register', 'Password', 'Name', 'Image'];
@@ -35,6 +41,7 @@ const PreFinalScreen = () => {
       console.log('error', error);
     }
   };
+
   const clearAllScreenData = async () => {
     try {
       const screens = ['Register', 'Password', 'Name', 'Image'];
@@ -58,14 +65,17 @@ const PreFinalScreen = () => {
         .then(response => {
           console.log(response);
           const token = response.data.token;
+          console.log("token",token)
           AsyncStorage.setItem('token', token);
+          setToken(token);
         });
 
       clearAllScreenData();
-    } catch (error) { 
+    } catch (error) {
       console.log('Error', error);
     }
   };
+  console.log("token",token)
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <View style={{marginTop: 80}}>
@@ -91,7 +101,7 @@ const PreFinalScreen = () => {
       </View>
 
       <Pressable
-         onPress={registerUser}
+        onPress={registerUser}
         style={{backgroundColor: '#03C03C', padding: 15, marginTop: 'auto'}}>
         <Text
           style={{
