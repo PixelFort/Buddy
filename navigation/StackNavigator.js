@@ -10,6 +10,7 @@ import HomeScreen from '../screens/HomeScreen';
 import PlayScreen from '../screens/PlayScreen';
 import BookScreen from '../screens/BookScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import CreateActivity from '../screens/CreateActivity';
 import { NavigationContainer } from '@react-navigation/native';
 import VenueInfoScreen from '../screens/VenueinfoScreen';
 
@@ -86,6 +87,11 @@ const StackNavigator = () => {
                  <Stack.Screen name="Venue" component={VenueInfoScreen}  options={{headerShown:false}}/>
 
                  <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown:false}} />
+
+                 <Stack.Screen 
+                 name="Create" 
+                 component={CreateActivity} 
+                 options={{headerShown:false}} />
              </Stack.Navigator>
          );
     }
