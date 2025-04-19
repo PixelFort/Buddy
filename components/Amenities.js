@@ -21,15 +21,7 @@ const Amenities = () => {
     },
     {
       id: '5',
-      name: 'Juice',
-    },
-    {
-      id: '6',
-      name: 'Fitness Coach ',
-    },
-    {
-      id: '7',
-      name: 'Members Lounge',
+      name: 'Parking',
     },
   ];
   return (

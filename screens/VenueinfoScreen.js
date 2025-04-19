@@ -25,7 +25,7 @@ const VenueInfoScreen = () => {
               />
             </View>
             <View style={{padding: 10}}>
-              <Text>{route?.param?.name}</Text>
+              <Text>{route?.params?.name}</Text>
               <View
                 style={{
                   marginTop: 5,
@@ -38,9 +38,9 @@ const VenueInfoScreen = () => {
                   6:00 AM-11:00 PM
                 </Text>
               </View>
-              <View style={{flexDirection: 'row', gap: 5, marginVertical: 8}}>
+              <View style={{flexDirection: 'row', gap: 5, marginVertical: 10}}>
                 <Ionicons name="location-outline" size={24} color="black" />
-                <Text style={{fontSize: 14, width: '80', fontWeight: '500'}}>
+                <Text style={{fontSize: 16, width: '80%', fontWeight: '500'}}>
                   {route?.params?.location}
                 </Text>
               </View>
@@ -109,7 +109,7 @@ const VenueInfoScreen = () => {
                 <View
                   style={{
                     borderColor: '686868',
-                    margin: 10,
+                    margin: 15,
                     padding: 10,
                     width: 130,
                     height: 90,
