@@ -10,6 +10,11 @@ import {
   getRegistrationProgress,
   saveRegistrationProgress,
 } from '../registrationUtils';
+import { Platform } from 'react-native';
+
+const BASE_URL =
+  Platform.OS === 'android' ? 'http://10.0.2.2:8000' : 'http://localhost:8000';
+
 
 const PreFinalScreen = () => {
   const {token, setToken} = useContext(AuthContext);
@@ -60,19 +65,18 @@ const PreFinalScreen = () => {
   console.log('user', userData);
   const registerUser = async () => {
     try {
-      const response = await axios
-        .post('http://localhost:8000/register', userData)
-        .then(response => {
-          console.log(response);
-          const token = response.data.token;
-          console.log("token",token)
-          AsyncStorage.setItem('token', token);
-          setToken(token);
-        });
-
-      clearAllScreenData();
+      const response = await axios.post(`${BASE_URL}/register`, userData);
+      
+      console.log("Register response:", response);
+      const token = response.data.token;
+      console.log("token", token);
+  
+      await AsyncStorage.setItem('token', token); // ✅ Await to ensure token is saved
+      setToken(token);
+  
+      clearAllScreenData(); // ✅ Moved inside try to ensure it runs after success
     } catch (error) {
-      console.log('Error', error);
+      console.log('Register Error:', error);
     }
   };
   console.log("token",token)
