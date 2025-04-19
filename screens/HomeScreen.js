@@ -194,13 +194,19 @@ export default function HomeScreen() {
           <View style={{padding:14}}>
             <View style={{padding:10,backgroundColor:'white',borderRadius:10}}>
               <Text style={{fontSize:15,fontWeight:'500'}}>SpotLight</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {data?.map((item,index)=>(
-                  <ImageBackground imageStyle={{borderRadius:10}} style={{width:220,height:280,resizeMode:"contain",marginRight:10,marginVertical:15}} source={{uri:item?.image}}>
+             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+  {data?.map((item) => (
+    <ImageBackground
+      key={item.id} // Add key prop to ensure unique identification for each child
+      imageStyle={{ borderRadius: 10 }}
+      style={{ width: 220, height: 280, resizeMode: "contain", marginRight: 10, marginVertical: 15 }}
+      source={{ uri: item?.image }}
+    >
+      {/* You can add other content inside ImageBackground if needed */}
+    </ImageBackground>
+  ))}
+</ScrollView>
 
-                  </ImageBackground>
-                ))}
-              </ScrollView>
             </View>
           </View>
           <View>
