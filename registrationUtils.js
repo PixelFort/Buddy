@@ -16,7 +16,7 @@ export const saveRegistrationProgress = async (screenName, data) => {
   }
 };
 
-export const getRegistrationProgress = async screenName => {
+export const getRegistrationProgress = async (screenName) => {
   try {
     const key = `registration_progress_${screenName}`;
     const data = await AsyncStorage.getItem(key);

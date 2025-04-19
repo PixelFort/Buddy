@@ -43,7 +43,7 @@ app.post('/register', async (req, res) => {
 
     const secretKey = crypto.randomBytes(32).toString('hex');
 
-    const token = jwt.sign({userId: user._id}, secretKey);
+    const token = jwt.sign({userId: newUser._id}, secretKey);
 
     res.status(200).json({token});
   } catch (error) {
@@ -71,7 +71,7 @@ app.post('/login', async (req, res) => {
   
       res.status(200).json({token});
     } catch (error) {
-      console.log('error loggin in', error);
+      console.log('Error loggin in', error);
       res.status(500).json({message: 'Error loggin In'});
     }
   });
