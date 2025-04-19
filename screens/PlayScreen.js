@@ -6,16 +6,33 @@ import {
   Image,
   Pressable,
   ScrollView,
+  FlatList,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
+import axios from 'axios';
+import Game from '../components/Game';
+
 
 const PlayScreen = () => {
   const [option, setOption] = useState('My Sports');
   const [sport, setSport] = useState('Cricket');
   const navigation = useNavigation();
+  const [games, setGames] = useState([]); // to hold the any number of games
+  useEffect(() => {
+    fetchGames();
+  }, []);
+  const fetchGames = async () => {
+    try {
+      const response = await axios.get('http://192.168.99.209:8000/games');
+      setGames(response.data);
+    } catch (error) {
+      console.log('Error', error);
+    }
+  };
+  console.log('Current option:', option);
   return (
     <SafeAreaView>
       <View style={{padding: 12, backgroundColor: '#223536'}}>
@@ -157,15 +174,15 @@ const PlayScreen = () => {
       </View>
 
       <View
-       style={{
+        style={{
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: 10,
           backgroundColor: 'white',
         }}>
-         <Pressable onPress={() => navigation.navigate("Create")}>
-         <Text style={{fontWeight: 'bold'}}>Create Game</Text>
+        <Pressable onPress={() => navigation.navigate('Create')}>
+          <Text style={{fontWeight: 'bold'}}>Create Game</Text>
         </Pressable>
         <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
           <Pressable>
@@ -177,6 +194,18 @@ const PlayScreen = () => {
           </Pressable>
         </View>
       </View>
+ 
+    
+
+      {option == 'My Sports' && (
+        <FlatList
+          data={games}
+          renderItem={({item}) => <Game item={item} />}
+          keyExtractor={item => item._id}
+          contentContainerStyle={{paddingBottom:20}}
+        />
+       )}
+    
     </SafeAreaView>
   );
 };
