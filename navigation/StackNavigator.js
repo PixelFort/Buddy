@@ -136,18 +136,6 @@ const StackNavigator = () => {
     );
   };
 
-                 <Stack.Screen 
-                 name="Create" 
-                 component={CreateActivity} 
-                 options={{headerShown:false}} />
-
-                <Stack.Screen 
-                 name="TagVenue" 
-                 component={TagVenueScreen} 
-                 options={{headerShown:false}} />
-             </Stack.Navigator>
-         );
-    }
   const MainStack = () => {
     return (
       <Stack.Navigator>
@@ -155,6 +143,7 @@ const StackNavigator = () => {
         <Stack.Screen name="Venue" component={VenueInfoScreen} options={{headerShown: false}} />
         <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown: false}} />
         <Stack.Screen name="Create" component={CreateActivity} options={{headerShown: false}} />
+        <Stack.Screen name="TagVenue" component={TagVenueScreen} options={{headerShown:false}} />
       </Stack.Navigator>
     );
   };
