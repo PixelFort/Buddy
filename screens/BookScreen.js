@@ -126,12 +126,20 @@ const BookScreen = () => {
       lng: 81.87014,
       icon: "https://maps.app.goo.gl/UcFCarVLn24tEgcD9",
       filter_by: ["Badminton"],
-      sportsAvailable:[ {
-        id: '1',
-        name: 'Badminton',
-        icon: 'badminton',
-        price: 500,
-      }],
+      sportsAvailable:[ 
+        {
+          id: '1',
+          name: 'Badminton',
+          icon: 'badminton',
+          price: 500,
+        },
+        {
+          id: '2',
+          name: 'Table Tennis',
+          icon: 'table-tennis',
+          price: 500,
+        }
+      ],
       image: "https://i.ytimg.com/vi/-gv_rB84u3s/maxresdefault.jpg",
       location: " Raman Hostel ,MNNIT",
       address: "FVX9+6XF, Shivkuti, Govindpur, Teliarganj, Prayagraj, Uttar Pradesh 211004",

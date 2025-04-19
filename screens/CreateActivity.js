@@ -17,6 +17,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useState} from 'react';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 const CreateActivity = () => {
   const [sport, setSport] = useState('');
   const [area, setArea] = useState('');
@@ -25,6 +26,9 @@ const CreateActivity = () => {
   const [noOfPlayers, setnoOfPlayers] = useState(0);
 
   const [selected, setSelected] = useState(['Public']);
+
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView
       style={{
@@ -73,6 +77,7 @@ const CreateActivity = () => {
  
     {/*  area part will take you to the venue screen  and after selecting venue come back again to this screen */}
           <Pressable
+            onPress={() => navigation.navigate("TagVenue")}
             style={{
               flexDirection: 'row',
               alignItems: 'center',
