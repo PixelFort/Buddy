@@ -13,6 +13,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import CreateActivity from '../screens/CreateActivity';
 import { NavigationContainer } from '@react-navigation/native';
 import VenueInfoScreen from '../screens/VenueinfoScreen';
+import TagVenueScreen from '../screens/TagVenueScreen';
 
 const StackNavigator = () => {
    const Stack = createNativeStackNavigator();
@@ -91,6 +92,11 @@ const StackNavigator = () => {
                  <Stack.Screen 
                  name="Create" 
                  component={CreateActivity} 
+                 options={{headerShown:false}} />
+
+                <Stack.Screen 
+                 name="TagVenue" 
+                 component={TagVenueScreen} 
                  options={{headerShown:false}} />
              </Stack.Navigator>
          );
