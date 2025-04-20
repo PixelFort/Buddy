@@ -19,6 +19,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import StackNavigator from './navigation/StackNavigator';
 import { AuthProvider } from './AuthContext';
+import { ModalPortal } from 'react-native-modals';
 
 
 function Section({children, title}) {
@@ -55,23 +56,9 @@ function App() {
   };
 
   return (
-    // <SafeAreaView style={backgroundStyle}>
-    //   <StatusBar
-    //     barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-    //     backgroundColor={backgroundStyle.backgroundColor}
-    //   />
-    //   <ScrollView
-    //     contentInsetAdjustmentBehavior="automatic"
-    //     style={backgroundStyle}>
-    //     <Header />
-        
-    //     <Ionicons name="search" size={24} color="gray" />
-
-        
-    //   </ScrollView>
-    // </SafeAreaView>
     <AuthProvider>
       <StackNavigator/>
+      <ModalPortal />
     </AuthProvider>
     
   );
