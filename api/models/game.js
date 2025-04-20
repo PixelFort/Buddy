@@ -37,7 +37,7 @@ const gameSchema = new Schema({
   players: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'User', 
     },
   ],
   queries: [

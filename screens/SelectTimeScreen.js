@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import {Button} from 'react-native';
 
 const SelectTimeScreen = () => {
   const navigation = useNavigation();
@@ -56,9 +57,39 @@ const SelectTimeScreen = () => {
     setStartTimePickerVisibility(false);
   };
 
+  const showEndTimePicker = () => {
+    setEndTimePickerVisibility(true);
+  };
+
+  const hideEndTimePicker = () => {
+    setEndTimePickerVisibility(false);
+  };
+
   const handleConfirmTime = time => {
     setStartTime(time);
     hideStartTimePicker();
+  };
+  const handleConfirmEndTime = time => {
+    setEndTime(time);
+    hideEndTimePicker();
+
+    if(startTime) {
+      const formattedStartTime = formatTime(startTime);
+      const formattedEndTime = formatTime(endTime);
+      const timeInterval = `${formattedStartTime} - ${formattedEndTime}`;
+      navigation.navigate("Create", {timeInterval}) 
+    }
+  };
+
+  const formatTime = time => {
+    if (!time) return 'Select Time';
+    const hours = time.getHours();
+    const min = time.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = min < 10 ? `0${min}` : min;
+
+    return `${formattedHours} : ${formattedMinutes} : ${ampm}`;
   };
 
   return (
@@ -93,9 +124,9 @@ const SelectTimeScreen = () => {
           </Pressable>
         ))}
       </Pressable>
-      <View>
-        <View>
-          <Text>Start Time: </Text>
+      <View style={styles.container}>
+        <View style={styles.timeContainer}>
+          <Text style={styles.label}>Start Time: </Text>
 
           <Button title={formatTime(startTime)} onPress={showStartTimePicker} />
 
@@ -107,6 +138,20 @@ const SelectTimeScreen = () => {
             is24Hour={false}
           />
         </View>
+
+        <View style={styles.timeContainer}>
+          <Text style={styles.label}>End Time: </Text>
+
+          <Button title={formatTime(endTime)} onPress={showEndTimePicker} />
+
+          <DateTimePickerModal
+            isVisible={isEndTimePickerVisible}
+            mode="time"
+            onConfirm={handleConfirmEndTime}
+            onCancel={hideEndTimePicker}  
+            is24Hour={false}
+           />
+        </View>
       </View>
     </View>
   );
@@ -115,25 +160,25 @@ const SelectTimeScreen = () => {
 export default SelectTimeScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        padding: 16,
-        backgroundColor: '#fff',
-    },
-    timeContainer:{
-        marginBottom: 16,
-        alignItems: 'center',
-    },
-    label: {
-        fontSize: 16,
-        marginBottom: 8,
-    },
-    summaryContainer: {
-        marginTop: 32,
-        alignItems: 'center',
-    },
-    summaryText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
+  container: {
+    justifyContent: 'center',
+    padding: 16,
+    backgroundColor: '#fff',
+  },
+  timeContainer: {
+    marginBottom: 16,
+    alignItems: 'center',
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  summaryContainer: {
+    marginTop: 32,
+    alignItems: 'center',
+  },
+  summaryText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
 });
