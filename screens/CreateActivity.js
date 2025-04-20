@@ -8,7 +8,7 @@ import {
   Pressable,
   TextInput,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -17,7 +17,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useState} from 'react';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer, useNavigation, useRoute } from '@react-navigation/native';
 const CreateActivity = () => {
   const [sport, setSport] = useState('');
   const [area, setArea] = useState('');
@@ -28,6 +28,14 @@ const CreateActivity = () => {
   const [selected, setSelected] = useState(['Public']);
 
   const navigation = useNavigation();
+  const route = useRoute();
+  const [taggedVenue, setTaggedVenue] = useState(null);
+
+  useEffect(() => {
+    if(route?.params?.taggedVenue) {
+      setTaggedVenue(route?.params?.taggedVenue)
+    }
+  }, [route?.params])
 
   return (
     <SafeAreaView
@@ -89,7 +97,7 @@ const CreateActivity = () => {
             <View style={{flex: 1}}>
               <Text style={{fontSize: 18, fontWeight: '500'}}>Area</Text>
               <TextInput
-                value={area}
+                value={area ? area : taggedVenue}
                 onChangeText={setArea}
                 style={{marginTop: 8, fontSize: 15, color: 'black'}}
                 placeholderTextColor="gray"
