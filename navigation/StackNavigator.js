@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet } from 'react-native';
 import React, { useContext } from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -22,10 +22,15 @@ import PreFinalScreen from '../screens/PreFinalScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import PasswordScreen from '../screens/PasswordScreen';
 import { AuthContext } from '../AuthContext';
+import SelectTimeScreen from '../screens/SelectTimeScreen';
 
-const StackNavigator = () => {
-  const Stack = createNativeStackNavigator();
-  const Tab = createBottomTabNavigator();
+
+ const StackNavigator =() =>{
+ 
+ 
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
   const {token} = useContext(AuthContext);
 
@@ -132,6 +137,7 @@ const StackNavigator = () => {
           component={PreFinalScreen}
           options={{headerShown: false}}
         />
+        
       </Stack.Navigator>
     );
   };
@@ -144,6 +150,11 @@ const StackNavigator = () => {
         <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown: false}} />
         <Stack.Screen name="Create" component={CreateActivity} options={{headerShown: false}} />
         <Stack.Screen name="TagVenue" component={TagVenueScreen} options={{headerShown:false}} />
+        <Stack.Screen
+          name="Time"
+          component={SelectTimeScreen}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     );
   };
@@ -154,6 +165,7 @@ const StackNavigator = () => {
     </NavigationContainer>
   );
 };
+
 
 export default StackNavigator;
 

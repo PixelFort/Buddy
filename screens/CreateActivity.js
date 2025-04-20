@@ -30,6 +30,7 @@ const CreateActivity = () => {
   const [area, setArea] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [timeInterval, setTimeInterval] = useState('');
   const [noOfPlayers, setnoOfPlayers] = useState(0);
 
   const [selected, setSelected] = useState(['Public']);
@@ -37,6 +38,12 @@ const CreateActivity = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const [taggedVenue, setTaggedVenue] = useState(null);
+
+  useEffect(() =>  {
+    if(route?.params?.timeInterval) {
+       setTimeInterval(route?.params?.timeInterval)
+    }
+  },[route.params])
 
   useEffect(() => {
     if (route?.params?.taggedVenue) {
@@ -76,6 +83,11 @@ const CreateActivity = () => {
     setModalVisible(false);
     setDate(date);
   }
+
+  const createGame = () => {
+
+  }
+
   return (
     <>
       <SafeAreaView
@@ -187,7 +199,7 @@ const CreateActivity = () => {
               }}></Text>
 
             <Pressable
-            onPress={() => navigataion.navigate("Time")}
+            onPress={() => navigation.navigate("Time")}
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -457,6 +469,10 @@ const CreateActivity = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
+
+      <Pressable onPress={createGame} style={{backgroundColor:"#07bc0c", marginTop:"auto", marginBottom: 30,padding: 12, marginHorizontal:10, borderRadius:4}}>
+        <Text style={{textAlign: "center", color:"white", fontSize:15, fontWeight:"500"}}>Create Activity</Text>
+      </Pressable>
 
       <BottomModal
         onBackdropPress={() => setModalVisible(!modalVisible)}
