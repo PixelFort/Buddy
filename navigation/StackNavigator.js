@@ -13,6 +13,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import CreateActivity from '../screens/CreateActivity';
 import { NavigationContainer } from '@react-navigation/native';
 import VenueInfoScreen from '../screens/VenueinfoScreen';
+import TagVenueScreen from '../screens/TagVenueScreen';
 import StartScreen from '../screens/StartScreen';
 import LoginScreen from '../screens/LoginScreen';
 import NameScreen from '../screens/NameScreen';
@@ -145,6 +146,7 @@ const Tab = createBottomTabNavigator();
         <Stack.Screen name="Venue" component={VenueInfoScreen} options={{headerShown: false}} />
         <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown: false}} />
         <Stack.Screen name="Create" component={CreateActivity} options={{headerShown: false}} />
+        <Stack.Screen name="TagVenue" component={TagVenueScreen} options={{headerShown:false}} />
       </Stack.Navigator>
     );
   };
