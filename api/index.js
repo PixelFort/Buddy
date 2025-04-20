@@ -347,3 +347,27 @@ app.post('/login', async (req, res) => {
     }
   });
 
+app.post("/creategame",async(req, res) => {
+  try{
+      const {sport, area, date, time, admin, totalPlayers} = req.body; l
+
+      const activityAccess = "Public";  
+
+      const newGame = new Game({
+        sport,
+        area,
+        date,
+        time,
+        admin,
+        totalPlayers,
+        players: [admin],
+      });
+
+      const savedGame = newGame.save();
+      res.status(200).json(savedGame);
+
+  } catch(err) {
+      console.log("Error", err);
+      res.status(500).json({message:"Failed to create a game"})
+  }
+})

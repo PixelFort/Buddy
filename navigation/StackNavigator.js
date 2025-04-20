@@ -22,9 +22,11 @@ import PreFinalScreen from '../screens/PreFinalScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import PasswordScreen from '../screens/PasswordScreen';
 import { AuthContext } from '../AuthContext';
+import SelectTimeScreen from '../screens/SelectTimeScreen';
+
 
  const StackNavigator =() =>{
-
+ 
  
 
 const Stack = createNativeStackNavigator();
@@ -135,6 +137,7 @@ const Tab = createBottomTabNavigator();
           component={PreFinalScreen}
           options={{headerShown: false}}
         />
+        
       </Stack.Navigator>
     );
   };
@@ -147,6 +150,11 @@ const Tab = createBottomTabNavigator();
         <Stack.Screen name="AuthStack" component={AuthStack} options={{headerShown: false}} />
         <Stack.Screen name="Create" component={CreateActivity} options={{headerShown: false}} />
         <Stack.Screen name="TagVenue" component={TagVenueScreen} options={{headerShown:false}} />
+        <Stack.Screen
+          name="Time"
+          component={SelectTimeScreen}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     );
   };
