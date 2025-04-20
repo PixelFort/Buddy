@@ -14,6 +14,7 @@ import CreateActivity from '../screens/CreateActivity';
 import {NavigationContainer} from '@react-navigation/native';
 import VenueInfoScreen from '../screens/VenueinfoScreen';
 import TagVenueScreen from '../screens/TagVenueScreen';
+import SelectTimeScreen from '../screens/SelectTimeScreen';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -124,6 +125,11 @@ const StackNavigator = () => {
           name="TagVenue"
           component={TagVenueScreen}
           options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="Time"
+          component={SelectTimeScreen}
         />
       </Stack.Navigator>
     );

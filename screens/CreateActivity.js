@@ -187,6 +187,7 @@ const CreateActivity = () => {
               }}></Text>
 
             <Pressable
+            onPress={() => navigataion.navigate("Time")}
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
